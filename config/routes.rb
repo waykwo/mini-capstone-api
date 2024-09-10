@@ -11,6 +11,8 @@ Rails.application.routes.draw do
   patch "/products/:id" => "products#update"
   delete "/products/:id" => "products#destroy"
 
+  get "/images" => "images#index"
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
