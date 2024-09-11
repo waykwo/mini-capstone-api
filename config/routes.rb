@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   get "/images" => "images#index"
 
+  post "/users" => "users#create"
+  
   # Defines the root path route ("/")
   # root "posts#index"
 end
