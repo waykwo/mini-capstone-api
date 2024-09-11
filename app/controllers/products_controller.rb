@@ -37,6 +37,7 @@ class ProductsController < ApplicationController
       render template: "products/show"
     else
       # error handling
+      p @product.errors.full_messages
       render json: {errors: @product.errors.full_messages}
     end
   end
