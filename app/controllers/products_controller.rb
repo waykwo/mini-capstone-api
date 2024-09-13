@@ -15,6 +15,7 @@ class ProductsController < ApplicationController
       name: params[:name],
       price: params[:price],
       description: params[:description],
+      # supplier_id
     )
     # happy/sad path
     if @product.save
