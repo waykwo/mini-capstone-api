@@ -9,10 +9,10 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order = Order.find_by(id: 1)
-    # p "===== HERE ====="
-    # pp @order.user_id
-    # p "===== HERE ====="
+    @order = Order.find_by(id: current_user.id)
+    p "===== HERE ====="
+    pp @order.user_id
+    p "===== HERE ====="
     if current_user && @order.user_id == current_user.id
       render :show
     else

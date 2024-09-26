@@ -10,12 +10,12 @@ class ProductsController < ApplicationController
   end
 
   def create
-    p params
+    # p params
     @product = Product.new(
       name: params[:name],
       price: params[:price],
       description: params[:description],
-      # supplier_id
+      supplier_id: params[:supplier_id]
     )
     # happy/sad path
     if @product.save
