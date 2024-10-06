@@ -1,7 +1,13 @@
 class ProductsController < ApplicationController
   def index
     @products = Product.all
-    render template: "products/index"
+    render :index
+    # if current_user
+    #   @products = Product.all
+    #   render template: "products/index"
+    # else
+    #   render json: []
+    # end
   end
 
   def show
@@ -23,7 +29,7 @@ class ProductsController < ApplicationController
     else
       # error handling
       p @product.errors.full_messages
-      render json: {errors: @product.errors.full_messages}
+      render json: {errors: @product.errors.full_messages}, status: :unprocessable_entity
     end
   end
 
