@@ -55,4 +55,8 @@ class ProductsController < ApplicationController
     render template: "products/show"
   end
 
+  def espresso_equipment
+    @category_products = CategoryProduct.where(category_id: 2)
+  end
+
 end

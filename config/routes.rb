@@ -19,6 +19,12 @@ Rails.application.routes.draw do
   get "/orders" => "orders#index"
   get "/orders/:id" => "orders#show"
   post "/orders" => "orders#create"
+
+  get "/espresso_equipment" => "products#espresso_equipment"
+
+  get "/carted-products" => "carted_products#index"
+  post "/carted-products" => "carted_products#create"
+
   # Defines the root path route ("/")
   # root "posts#index"
 end
