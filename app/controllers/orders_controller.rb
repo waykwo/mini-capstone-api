@@ -8,18 +8,6 @@ class OrdersController < ApplicationController
     render :index
   end
 
-  def show
-    @order = Order.find_by(id: current_user.id)
-    p "===== HERE ====="
-    pp @order.user_id
-    p "===== HERE ====="
-    if current_user && @order.user_id == current_user.id
-      render :show
-    else
-      render json: {}, status: :unauthorized
-    end
-  end
-
   def create
     p "===== HERE ====="
     pp current_user
@@ -52,17 +40,18 @@ class OrdersController < ApplicationController
       item.save
     end
     render :show
-    
-    def show
-      @order = Order.find_by(id: params[:id])
-      if @order.user_id == current_user.id
-        render :show
-      else
-        render json: {}, status: :unauthorized
-      end  
-    end
-
   end
+    
+  def show
+    @order = Order.find_by(id: params[:id])
+    if @order.user_id == current_user.id
+      render :show
+    else
+      render json: {}, status: :unauthorized
+    end
+  end
+
+end
 
     # render json: {
     #   # quantity: @carted_products[1].quantity,
@@ -87,4 +76,15 @@ class OrdersController < ApplicationController
     #   total: subtotal + tax
     # )
     # render :show
-end
+
+      # def show
+  #   @order = Order.find_by(id: current_user.id)
+  #   p "===== HERE ====="
+  #   pp @order.user_id
+  #   p "===== HERE ====="
+  #   if current_user && @order.user_id == current_user.id
+  #     render :show
+  #   else
+  #     render json: {}, status: :unauthorized
+  #   end
+  # end
